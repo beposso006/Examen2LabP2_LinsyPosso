@@ -20,9 +20,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        HiloCrono h = new HiloCrono(jl_cronometro);
-        Thread proceso1 = new Thread(h);
-        proceso1.start();
+        
          //Carro c = new Carro(tf_marca.getText(), tf_modelo.getText(), (int) js_velocidad.getValue());
         AdminCarro car = new AdminCarro("./Carros.exa");
         car.cargarArchivo();
@@ -183,6 +181,11 @@ public class Principal extends javax.swing.JFrame {
         jb_iniciarCarrea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_iniciarCarrea.setText("Iniciar");
         jb_iniciarCarrea.setToolTipText("");
+        jb_iniciarCarrea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_iniciarCarreaMouseClicked(evt);
+            }
+        });
         jPanel3.add(jb_iniciarCarrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, -1));
 
         javax.swing.GroupLayout jD_carreraLayout = new javax.swing.GroupLayout(jD_carrera.getContentPane());
@@ -380,6 +383,12 @@ public class Principal extends javax.swing.JFrame {
             jl_nombreC2.setText(temp.getMarca());
         }
     }//GEN-LAST:event_cb_Cjugador2ItemStateChanged
+
+    private void jb_iniciarCarreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciarCarreaMouseClicked
+       HiloCrono h = new HiloCrono(jl_cronometro);
+        Thread proceso1 = new Thread(h);
+        proceso1.start();
+    }//GEN-LAST:event_jb_iniciarCarreaMouseClicked
 
     /**
      * @param args the command line arguments

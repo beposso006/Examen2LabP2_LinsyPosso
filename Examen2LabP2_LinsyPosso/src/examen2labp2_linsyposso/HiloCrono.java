@@ -13,17 +13,27 @@ import javax.swing.JLabel;
  *
  * @author 29164
  */
-public class HiloCrono{
+public class HiloCrono extends Thread{
     private JLabel cronometro;
 
     public HiloCrono(JLabel hora) {
-        this.cronometro = cronometro;
+        //this.cronometro = cronometro;
     }
 
 
-    //public void run() {
-    
+    public void run() {
+    while (true) {
+            Date h = new Date();
+            DateFormat f = new SimpleDateFormat("mm:ss");
+//            cronometro.setText(f.format(h));
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
+
+            }
+        }
     }
+}
 
 
 
