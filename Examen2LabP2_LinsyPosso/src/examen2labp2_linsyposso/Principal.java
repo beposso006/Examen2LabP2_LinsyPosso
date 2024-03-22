@@ -20,6 +20,28 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        HiloCrono h = new HiloCrono(jl_cronometro);
+        Thread proceso1 = new Thread(h);
+        proceso1.start();
+         //Carro c = new Carro(tf_marca.getText(), tf_modelo.getText(), (int) js_velocidad.getValue());
+        AdminCarro car = new AdminCarro("./Carros.exa");
+        car.cargarArchivo();
+        //car.setCarro(c);
+        //car.escribirArchivo();
+        //JOptionPane.showMessageDialog(this, "Carro Creado Correctamente");
+        tf_marca.setText("");
+        tf_modelo.setText("");
+        js_velocidad.setValue(0);
+        DefaultComboBoxModel mod1 =  (DefaultComboBoxModel) cb_Cjugador1.getModel();
+        for (Carro cr : car.lista) {
+            mod1.addElement(cr);
+        }
+        cb_Cjugador1.setModel(mod1);
+        DefaultComboBoxModel mod2 =  (DefaultComboBoxModel) cb_Cjugador2.getModel();
+        for (Carro cr : car.lista) {
+            mod2.addElement(cr);
+        }
+        cb_Cjugador2.setModel(mod2);
     }
 
     /**
@@ -141,7 +163,6 @@ public class Principal extends javax.swing.JFrame {
 
         jl_nombreC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_nombreC.setForeground(new java.awt.Color(0, 0, 0));
-        jl_nombreC.setText("jLabel17");
         jPanel3.add(jl_nombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
         jProgressBar1.setForeground(new java.awt.Color(255, 0, 0));
@@ -149,7 +170,6 @@ public class Principal extends javax.swing.JFrame {
 
         jl_nombreC2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_nombreC2.setForeground(new java.awt.Color(0, 0, 0));
-        jl_nombreC2.setText("jLabel18");
         jPanel3.add(jl_nombreC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         jProgressBar2.setForeground(new java.awt.Color(51, 255, 51));
@@ -173,7 +193,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jD_carreraLayout.setVerticalGroup(
             jD_carreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -345,6 +365,8 @@ public class Principal extends javax.swing.JFrame {
             jl_marca1.setText(temp.getMarca());
             jl_modelo1.setText(temp.getModelo());
             jl_velocidad1.setText((String.valueOf(temp.getVelocidad())));
+            jl_nombreC.setText(temp.getMarca());
+                    
         }
         
     }//GEN-LAST:event_cb_Cjugador1ItemStateChanged
@@ -355,6 +377,7 @@ public class Principal extends javax.swing.JFrame {
             jl_marca2.setText(temp.getMarca());
             jl_modelo2.setText(temp.getModelo());
             jl_velocidad2.setText((String.valueOf(temp.getVelocidad())));
+            jl_nombreC2.setText(temp.getMarca());
         }
     }//GEN-LAST:event_cb_Cjugador2ItemStateChanged
 
