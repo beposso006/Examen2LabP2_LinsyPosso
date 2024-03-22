@@ -4,6 +4,11 @@
  */
 package examen2labp2_linsyposso;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.colorchooser.DefaultColorSelectionModel;
+
 /**
  *
  * @author 29164
@@ -69,6 +74,8 @@ public class Principal extends javax.swing.JFrame {
         jl_velocidad2 = new javax.swing.JLabel();
         jb_iniciar = new javax.swing.JButton();
 
+        jD_creacionC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -97,6 +104,11 @@ public class Principal extends javax.swing.JFrame {
 
         jb_creado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_creado.setText("Crear");
+        jb_creado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_creadoMouseClicked(evt);
+            }
+        });
         jPanel2.add(jb_creado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
 
         javax.swing.GroupLayout jD_creacionCLayout = new javax.swing.GroupLayout(jD_creacionC.getContentPane());
@@ -109,7 +121,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jD_creacionCLayout.setVerticalGroup(
             jD_creacionCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
@@ -181,6 +193,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setText("Jugador 1");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
+        cb_Cjugador1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Cjugador1ItemStateChanged(evt);
+            }
+        });
         jPanel1.add(cb_Cjugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -188,6 +205,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setText("Jugador 2");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
+        cb_Cjugador2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Cjugador2ItemStateChanged(evt);
+            }
+        });
         jPanel1.add(cb_Cjugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -197,6 +219,11 @@ public class Principal extends javax.swing.JFrame {
 
         jb_crearC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_crearC.setText("Crear Carro");
+        jb_crearC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearCMouseClicked(evt);
+            }
+        });
         jPanel1.add(jb_crearC, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -220,7 +247,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Modelo");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 60, -1));
 
         jl_modelo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jl_modelo1.setForeground(new java.awt.Color(0, 0, 0));
@@ -255,6 +282,11 @@ public class Principal extends javax.swing.JFrame {
 
         jb_iniciar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jb_iniciar.setText("Iniciar");
+        jb_iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_iniciarMouseClicked(evt);
+            }
+        });
         jPanel1.add(jb_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,6 +302,61 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_crearCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearCMouseClicked
+        jD_creacionC.pack();
+        jD_creacionC.setModal(true);
+        jD_creacionC.setLocationRelativeTo(this);
+        jD_creacionC.setVisible(true);
+    }//GEN-LAST:event_jb_crearCMouseClicked
+
+    private void jb_iniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciarMouseClicked
+        jD_carrera.pack();
+        jD_carrera.setModal(true);
+        jD_carrera.setLocationRelativeTo(this);
+        jD_carrera.setVisible(true);
+    }//GEN-LAST:event_jb_iniciarMouseClicked
+
+    private void jb_creadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_creadoMouseClicked
+        Carro c = new Carro(tf_marca.getText(), tf_modelo.getText(), (int) js_velocidad.getValue());
+        AdminCarro car = new AdminCarro("./Carros.exa");
+        car.cargarArchivo();
+        car.setCarro(c);
+        car.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Carro Creado Correctamente");
+        tf_marca.setText("");
+        tf_modelo.setText("");
+        js_velocidad.setValue(0);
+        DefaultComboBoxModel mod1 =  (DefaultComboBoxModel) cb_Cjugador1.getModel();
+        for (Carro cr : car.lista) {
+            mod1.addElement(cr);
+        }
+        cb_Cjugador1.setModel(mod1);
+        DefaultComboBoxModel mod2 =  (DefaultComboBoxModel) cb_Cjugador2.getModel();
+        for (Carro cr : car.lista) {
+            mod2.addElement(cr);
+        }
+        cb_Cjugador2.setModel(mod2);
+    }//GEN-LAST:event_jb_creadoMouseClicked
+
+    private void cb_Cjugador1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Cjugador1ItemStateChanged
+        Carro temp = (Carro) cb_Cjugador1.getSelectedItem();
+        if (temp != null) {
+            jl_marca1.setText(temp.getMarca());
+            jl_modelo1.setText(temp.getModelo());
+            jl_velocidad1.setText((String.valueOf(temp.getVelocidad())));
+        }
+        
+    }//GEN-LAST:event_cb_Cjugador1ItemStateChanged
+
+    private void cb_Cjugador2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Cjugador2ItemStateChanged
+        Carro temp = (Carro) cb_Cjugador2.getSelectedItem();
+        if (temp != null) {
+            jl_marca2.setText(temp.getMarca());
+            jl_modelo2.setText(temp.getModelo());
+            jl_velocidad2.setText((String.valueOf(temp.getVelocidad())));
+        }
+    }//GEN-LAST:event_cb_Cjugador2ItemStateChanged
 
     /**
      * @param args the command line arguments
